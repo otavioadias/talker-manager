@@ -12,4 +12,13 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+        const talkers = await readTalker();
+        const talker = talkers.find(({ id }) => id === Number(req.params.id));
+        if (!talker) {
+            res.status(404).json({ message: 'Pessoa palestrante não encontrada' });
+        }
+        res.status(200).json(talker);
+});
+
 module.exports = router;

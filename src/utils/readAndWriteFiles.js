@@ -6,7 +6,7 @@ const readTalker = async () => {
         const arrayTalker = await fs.readFile(join(__dirname, '../talker.json'), 'utf8');
         return JSON.parse(arrayTalker);
     } catch (e) {
-        console.log(e.message);
+        return [];
     }
 };
 
