@@ -55,10 +55,17 @@ const deleteTalker = async (id) => {
     }
 };
 
+const findTalker = async (params) => {
+    const arrayTalker = await readTalker();
+    const talker = arrayTalker.filter((t) => t.name.includes(params));
+    return talker;
+};
+
 module.exports = {
     readTalker,
     getLastTalkerId,
     insertTalker,
     changeTalkerFile,
     deleteTalker,
+    findTalker,
 };

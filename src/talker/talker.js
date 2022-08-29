@@ -1,6 +1,6 @@
 const express = require('express');
-const { readTalker, getLastTalkerId, 
-    insertTalker, changeTalkerFile, deleteTalker } = require('../utils/readAndWriteFiles');
+const { readTalker, getLastTalkerId, insertTalker, 
+    changeTalkerFile, deleteTalker, findTalker } = require('../utils/readAndWriteFiles');
 const ageValidation = require('../middleware/age');
 const nameValidation = require('../middleware/name');
 const talkValidation = require('../middleware/talk');
@@ -9,6 +9,12 @@ const rateValidation = require('../middleware/rate');
 const watchedAtValidation = require('../middleware/watchedAt');
 
 const router = express.Router();
+
+router.get('/search', tokenValidation, async (req, res) => {
+    const { q } = req.query;
+    const talker = await findTalker(q);
+    return res.status(200).json(talker);
+});
 
 router.get('/', async (req, res) => {
     try {
