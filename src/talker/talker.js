@@ -1,6 +1,6 @@
 const express = require('express');
 const { readTalker, getLastTalkerId, 
-    insertTalker } = require('../utils/readAndWriteFiles');
+    insertTalker, changeTalkerFile } = require('../utils/readAndWriteFiles');
 const ageValidation = require('../middleware/age');
 const nameValidation = require('../middleware/name');
 const talkValidation = require('../middleware/talk');
@@ -44,7 +44,22 @@ router.post('/', tokenValidation, nameValidation, ageValidation,
             return res.status(201).json(newTalker);
         } catch (e) {
             console.log(e);
-        }      
+        }
+});
+
+router.put('/:id', tokenValidation, nameValidation, ageValidation,
+    talkValidation, watchedAtValidation, rateValidation,
+    async (req, res) => {
+        const { name, age, talk } = req.body;
+        const { id } = req.params;
+        const newTalker = {
+            id: Number(id),
+            name,
+            age,
+            talk,
+        };
+        await changeTalkerFile(newTalker, id);
+        return res.status(200).json(newTalker);
 });
 
 module.exports = router;

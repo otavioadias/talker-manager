@@ -29,7 +29,6 @@ const changeTalkerFile = async (talker, id) => {
     try {
         const arrayTalker = await readTalker();
         let changedTalkers;
-
         for (let i = 0; i < arrayTalker.length; i += 1) {
             if (arrayTalker[i].id === Number(id)) {
                 arrayTalker[i].name = talker.name;
@@ -38,7 +37,7 @@ const changeTalkerFile = async (talker, id) => {
                 changedTalkers = arrayTalker[i];
             }
         }
-        await fs.writeFile(join(__dirname, '../talker.json', JSON.stringify(arrayTalker)));
+        await fs.writeFile(join(__dirname, '../talker.json'), JSON.stringify(arrayTalker));
         return changedTalkers;
     } catch (e) {
         console.log(e);
