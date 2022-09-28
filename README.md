@@ -2,13 +2,13 @@
 
 Nesse projeto foi desenvolvida uma aplicação de cadastros de talkers utilizando Node.js e Express, onde foi criado uma API de um CRUD (Create, Read, Update e Delete) de talkers e ENDPOITS para ler e escrever em um arquivo utilizando o módulo fs do Node.js, além do uso de middlewares e routers.
 
-# Clone o repositório:
+# - Clone o repositório:
 git clone git@github.com:otavioadias/talker-manager.git
 
 Entre na pasta: cd sd-021-b-project-talker-manager
 Verifique em qual branch está, caso esteja na master utilize: git checkout otavio-azevedo-sd-021-b-project-talker-manager
 
-# Rodando projeto com Docker:
+# - Rodando projeto com Docker:
 
 Rode o serviço node com o comando: docker-compose up -d.
 
@@ -21,12 +21,12 @@ Instale as dependências [Caso existam] com: npm install
 
 Execute a aplicação com: npm start ou npm run dev
 
-# Rodando os testes:
+# - Rodando os testes:
 ! Os testes desse projeto foram fornecidos pela Trybe.
 Para executar todos os testes inicie a aplicação com npm run dev e execute o npm test
 Para executar um único teste inicie a aplicação com npm run dev e execute o npm test nome-do-teste
 
-# Requisitos do Projeto:
+# - Requisitos do Projeto:
 # 1 - Crie o endpoint GET /talker
 A requisição deve retornar o status 200 e um array com todas as pessoas palestrantes cadastradas
 Caso não exista nenhuma pessoa palestrante cadastrada a requisição deve retornar o status 200 e um array vazio
@@ -101,7 +101,7 @@ A requisição deve ter o token de autenticação nos headers, no campo authoriz
 Atenção utilize o token gerado no requisito 3
 
 
-# Endpoints:
+# - Endpoints:
 Para testar as requisições HTTP pode ser usado qualquer cliente, no projeto foi utilizado o Thunder Client direto do VSCode.
 
 <!-- Olá, Tryber!
